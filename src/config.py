@@ -18,6 +18,9 @@ N_MELS = 128
 
 # Tham số Training
 BATCH_SIZE = 32
-EPOCHS = 50
+EPOCHS = 30
 LEARNING_RATE = 0.0001
 NUM_CLASSES = 10
+
+# Genre 
+GENRES = ['blues', 'classical', 'country', 'disco', 'hiphop', 'jazz', 'metal', 'pop', 'reggae', 'rock']

@@ -26,19 +26,19 @@ def build_cnn_lstm_model(input_shape):
     x = layers.MaxPooling2D((2, 2), padding='same')(x)
     x = layers.BatchNormalization()(x)
 
-    # --- Chuẩn bị dữ liệu cho LSTM ---
+    # --- Chuẩn bị dữ liệu cho LSTM 
     # Hiện tại shape đang là (Batch, Time', Freq', Filters)
     # Chúng ta cần gộp Freq' và Filters lại thành Feature vector, giữ nguyên Time'
     
     target_shape = (x.shape[1], x.shape[2] * x.shape[3]) # (Time_steps_reduced, Features)
     x = layers.Reshape(target_shape)(x)
 
-    # --- LSTM Block (Đọc chuỗi thời gian) ---
+    # --- LSTM Block (Đọc chuỗi thời gian) 
     x = layers.LSTM(64, return_sequences=False)(x) 
     # return_sequences=False vì ta chỉ cần output cuối cùng để phân loại cả đoạn nhạc
     x = layers.Dropout(0.3)(x)
 
-    # --- Output Block ---
+    # --- Output Block 
     x = layers.Dense(64, activation='relu')(x)
     x = layers.Dropout(0.3)(x)
     outputs = layers.Dense(NUM_CLASSES, activation='softmax')(x)

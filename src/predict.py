@@ -1,11 +1,10 @@
-# src/predict.py
 import numpy as np
 import tensorflow as tf
 import librosa
 from .config import *
 
 # Danh sách Genre (khớp với thứ tự folder trong GTZAN)
-GENRES = ['blues', 'classical', 'country', 'disco', 'hiphop', 'jazz', 'metal', 'pop', 'reggae', 'rock']
+# GENRES = ['blues', 'classical', 'country', 'disco', 'hiphop', 'jazz', 'metal', 'pop', 'reggae', 'rock']
 
 def predict(file_path):
     # Load model
@@ -37,5 +36,5 @@ def predict(file_path):
 
 if __name__ == "__main__":
     # Thay đổi đường dẫn file nhạc bạn muốn test
-    test_file = "data/genres_original/rock/rock.00001.wav" 
+    test_file = "data/genres_original/classical/classical.00001.wav" 
     predict(test_file)

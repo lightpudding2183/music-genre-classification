@@ -1,8 +1,7 @@
 import os
 import matplotlib.pyplot as plt
 from tensorflow.keras.callbacks import ModelCheckpoint, EarlyStopping
-from .data_loader import prepare_datasets
-from .model import build_cnn_lstm_model
+from src import build_cnn_lstm_model, prepare_datasets
 from .config import *
 
 def plot_history(history):
